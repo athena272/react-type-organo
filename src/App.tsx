@@ -16,9 +16,7 @@ export default function App() {
 
   useEffect(() => {
     setTeamsToUse(teamsToUse.map(team => {
-      if (team['color'].toLowerCase() === '#ff0033') {
-        team['color'] = '#57C278'
-      }
+
       return team
     }))
   }, [])
