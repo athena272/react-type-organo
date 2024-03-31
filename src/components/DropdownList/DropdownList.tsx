@@ -9,8 +9,7 @@ interface DropdownListProps {
     isRequired: boolean;
 }
 
-const DropdownList: React.FC<DropdownListProps> = ({ id, label, listItems, valueToUse, onSelectItem, isRequired }) => {
-
+export default function DropdownList({ id, label, listItems, valueToUse, onSelectItem, isRequired }: DropdownListProps) {
     return (
         <div className={styles.dropdownList}>
             <label htmlFor={id}>{label}</label>
@@ -33,5 +32,3 @@ const DropdownList: React.FC<DropdownListProps> = ({ id, label, listItems, value
         </div>
     );
 }
-
-export default DropdownList;
