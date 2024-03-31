@@ -1,20 +1,19 @@
-import Collaborator from '../Collaborator/Collaborator'
+import Collaborator, { CollaboratorProps } from '../Collaborator/Collaborator'
 import styles from './Team.module.scss'
-import PropTypes from "prop-types"
 import hexToRgba from 'hex-to-rgba';
 import { memo } from 'react';
 
-Team.propTypes = {
-    name: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
-    collaborators: PropTypes.array.isRequired,
-    onDelete: PropTypes.func,
-    onChangeTheme: PropTypes.func,
-    onFavorited: PropTypes.func,
+export interface TeamProps {
+    name: string;
+    color: string;
+    id: string;
+    collaborators: CollaboratorProps[]; // Use a interface CollaboratorProps para tipar a lista de colaboradores
+    onDelete?: (id: string) => void;
+    onChangeTheme?: (theme: { color: string, id: string }) => void;
+    onFavorited?: (id: string) => void;
 }
 
-function Team({ name, color, id, collaborators, onDelete, onChangeTheme, onFavorited }) {
+function Team({ name, color, id, collaborators, onDelete, onChangeTheme, onFavorited }: TeamProps) {
 
     return (
         collaborators.length > 0 && (
@@ -27,7 +26,7 @@ function Team({ name, color, id, collaborators, onDelete, onChangeTheme, onFavor
             >
                 <label htmlFor={id}></label>
                 <input
-                    onChange={(event) => onChangeTheme({
+                    onChange={(event) => onChangeTheme && onChangeTheme({
                         color: event.target.value,
                         id,
                     })}

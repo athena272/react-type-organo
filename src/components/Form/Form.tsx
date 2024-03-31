@@ -1,18 +1,17 @@
 import { useState } from 'react'
-import PropTypes from "prop-types"
 import { v4 as uuidv4 } from 'uuid';
 import Button from "../Button/Button";
 import DropdownList from "../DropdownList/DropdownList";
 import Field from "../Field/Field";
 import styles from './Form.module.scss'
 
-Form.propTypes = {
-    addTeam: PropTypes.func.isRequired,
-    teamsList: PropTypes.array.isRequired,
-    onRegisterCollaborator: PropTypes.func.isRequired,
+interface FormProps {
+    addTeam: (team: { name: string, color: string }) => void;
+    teamsList: { name: string, color: string }[];
+    onRegisterCollaborator: (collaborator: { id: string, name: string, role: string, image: string, team: string }) => void;
 }
 
-export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
+export default function Form({ addTeam, teamsList, onRegisterCollaborator }: FormProps) {
     const [name, setName] = useState('')
     const [role, setRole] = useState('')
     const [image, setImage] = useState('')
@@ -20,7 +19,7 @@ export default function Form({ addTeam, teamsList, onRegisterCollaborator }) {
     const [teamName, setTeamName] = useState('')
     const [teamColor, setTeamColor] = useState('')
 
-    const hanbleSalve = (event) => {
+    const hanbleSalve = (event: React.FormEvent) => {
         event.preventDefault()
         onRegisterCollaborator({
             id: uuidv4(),

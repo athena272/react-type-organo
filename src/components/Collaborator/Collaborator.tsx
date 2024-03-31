@@ -1,30 +1,31 @@
 import { memo } from 'react';
 import styles from './Collaborator.module.scss'
-import PropTypes from "prop-types"
 import { AiFillCloseCircle, AiFillHeart, AiOutlineHeart } from 'react-icons/ai';
 
-Collaborator.propTypes = {
-    id: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    role: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
-    backgroundColor: PropTypes.string.isRequired,
-    isFavorited: PropTypes.bool.isRequired,
-    onDelete: PropTypes.func,
-    onFavorited: PropTypes.func,
+export interface CollaboratorProps {
+    id: string;
+    name: string;
+    role: string;
+    image: string;
+    backgroundColor: string;
+    isFavorited: boolean;
+    onDelete?: (id: string) => void;
+    onFavorited?: (id: string) => void;
 }
 
-function Collaborator({ id, name, role, image, backgroundColor, onDelete, onFavorited, isFavorited }) {
-    
+function Collaborator({ id, name, role, image, backgroundColor, onDelete, onFavorited, isFavorited }: CollaboratorProps) {
+
     function handleFavorite() {
-        onFavorited(id)
+        if (onFavorited) {
+            onFavorited(id);
+        }
     }
 
     return (
         <div className={styles.collaborator}>
             <AiFillCloseCircle
                 size={35}
-                onClick={() => onDelete(id)}
+                onClick={() => onDelete && onDelete(id)}
                 className={styles.delete}
             />
             <div className={styles.header} style={{ backgroundColor: backgroundColor }}>
