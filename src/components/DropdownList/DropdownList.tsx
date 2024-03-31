@@ -1,16 +1,15 @@
 import styles from './DropdownList.module.scss'
-import PropTypes from "prop-types"
 
-DropdownList.propTypes = {
-    id: PropTypes.string.isRequired,
-    label: PropTypes.string.isRequired,
-    listItems: PropTypes.array.isRequired,
-    valueToUse: PropTypes.string.isRequired,
-    onSelectItem: PropTypes.func.isRequired,
-    isRequired: PropTypes.bool.isRequired,
+interface DropdownListProps {
+    id: string;
+    label: string;
+    listItems: { name: string }[];
+    valueToUse: string;
+    onSelectItem: (value: string) => void;
+    isRequired: boolean;
 }
 
-export default function DropdownList({ id, label, listItems, valueToUse, onSelectItem, isRequired }) {
+const DropdownList: React.FC<DropdownListProps> = ({ id, label, listItems, valueToUse, onSelectItem, isRequired }) => {
 
     return (
         <div className={styles.dropdownList}>
@@ -26,11 +25,13 @@ export default function DropdownList({ id, label, listItems, valueToUse, onSelec
                 {
                     listItems.map((item, index) => (
                         <option key={index}>
-                            {item['name']}
+                            {item.name}
                         </option>
                     ))
                 }
             </select>
         </div>
-    )
+    );
 }
+
+export default DropdownList;
