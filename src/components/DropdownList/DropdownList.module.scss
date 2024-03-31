@@ -1,0 +1,23 @@
+.dropdownList {
+    font-family: "Poppins";
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        font-size: 24px;
+    }
+
+    select {
+        background-color: #FFF;
+        box-shadow:0px 7px 20px 5px rgba(85,50,138,0.5);
+        width: 100%;
+        border: none;
+        font-size: 24px;
+        padding: 24px;
+        box-sizing: border-box;
+
+        &:disabled {
+            opacity: 0.75;
+        }
+    }
+}

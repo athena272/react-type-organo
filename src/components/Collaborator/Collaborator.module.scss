@@ -1,0 +1,58 @@
+.collaborator {
+    width: 280px;
+    min-height: 380px;
+    font-family: "Poppins";
+    position: relative;
+
+    .delete {
+        position: absolute;
+        right: -8px;
+        top: -10px;
+        color: #353232;
+    }
+
+    .header {
+        background-color: #F0F0F0;
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    img {
+        width: 100px;
+        border-radius: 50%;
+        position: relative;
+        bottom: -50px;
+    }
+
+    .footer {
+        background: #FFFFFF;
+        box-shadow: 0px 7px 20px 5px rgba(85, 50, 138, 0.5);
+        border-radius: 0px 0px 10px 10px;
+        padding-top: 90px;
+        padding-bottom: 40px;
+        min-height: 160px;
+
+        h3 {
+            margin-top: 0;
+            color: #1737F7;
+            font-size: 18px;
+            line-height: 22px;
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        h4 {
+            font-size: 18px;
+            line-height: 22px;
+            color: #212121;
+            padding: 0 16px;
+            min-height: 46px;
+        }
+
+        .favoritedArea {
+            .colorHeart {
+                color: #ff0800;
+            }
+        }
+
+    }
+}

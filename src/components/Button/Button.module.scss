@@ -1,0 +1,17 @@
+.button {
+    font-family: "Poppins";
+    background-color: #1737F7;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 18px;
+    padding: 32px;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    margin: 32px auto 0;
+    display: flex;
+
+    &:hover {
+        color: #95FFD4;
+    }
+}
