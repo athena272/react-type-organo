@@ -10,8 +10,7 @@ interface FieldProps {
     type?: string;
 }
 
-const Field: React.FC<FieldProps> = ({ id, label, placeholderText, isRequired, valueToUse, onTyping, type = 'text' }) => {
-
+export default function Field({ id, label, placeholderText, isRequired, valueToUse, onTyping, type = 'text' }: FieldProps) {
     function handleTyping(event: React.ChangeEvent<HTMLInputElement>) {
         onTyping(event.target.value);
     }
@@ -31,7 +30,5 @@ const Field: React.FC<FieldProps> = ({ id, label, placeholderText, isRequired, v
                 required={isRequired}
             />
         </div>
-    );
+    )
 }
-
-export default Field;
