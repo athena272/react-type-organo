@@ -26,13 +26,13 @@ export default function App() {
     });
   }
 
-  function removeCollaborator(id: string) {
-    setCollaborators(prevState => {
-      const updatedCollaborators = prevState.filter(collaborator => collaborator.id !== id);
-      console.log(updatedCollaborators);
-      return updatedCollaborators;
-    });
-  }
+  // function removeCollaborator(id: string) {
+  //   setCollaborators(prevState => {
+  //     const updatedCollaborators = prevState.filter(collaborator => collaborator.id !== id);
+  //     console.log(updatedCollaborators);
+  //     return updatedCollaborators;
+  //   });
+  // }
 
   function handleChangeTheme({ color, id }: { color: string, id: string }) {
     setTeamsToUse(teamsToUse.map(team => {
